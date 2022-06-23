@@ -8,7 +8,7 @@
 
 .hero{
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: minmax(300px, 2fr) 3fr;
     grid-auto-rows: 750px;
     margin: 0 auto;
     max-width: 1200px;
@@ -50,8 +50,8 @@
 
 .services .services-grid{
     display: grid;
-    grid-template-columns: repeat(4, minmax(200px, 250px));
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(4, minmax(150px, 200px));
+    grid-template-rows: 1fr;
     gap: 20px;
     justify-content: center;
     margin-top: 50px;
@@ -78,10 +78,11 @@
 }
 
 .plates-grid{
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, 200px);
     display: grid;
     gap: 30px;
     margin-bottom: 100px;
+    justify-content: center;
 }
 
 .plates-grid img{
@@ -93,14 +94,34 @@
     background-color: #EFD9CE;
     border-top-left-radius: 20px;
     margin: 0 10px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .plates-title{
     font-size: 6rem;
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
     text-align: center;
     color: #333;
     line-height: 4rem;
     font-weight: 400;
+}
+
+
+@media screen and (max-width: 768px){
+    .hero-image{
+        display: none;
+    }
+
+    .hero{
+        grid-template-columns: minmax(300px, 500px);
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .services .services-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 120px));
+    }
 }
